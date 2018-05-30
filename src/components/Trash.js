@@ -5,13 +5,18 @@ import TrashIcon from '../trash.svg';
 
 class Trash extends Component {
   static propTypes = {
-    isVisible: PropTypes.bool.isRequired
+    isVisible: PropTypes.bool.isRequired,
+    onTrashClicked: PropTypes.func
   }
 
   showTrash = () => {
     if (this.props.isVisible) {
-      return <img src={ TrashIcon } alt="Trash" className="trash"></img>;
+      return <img onClick={ this.onTrashClicked } src={ TrashIcon } alt="Trash" className="trash"></img>;
     }
+  }
+
+  onTrashClicked = () => {
+    this.props.onTrashClicked();
   }
 
   render() {

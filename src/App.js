@@ -32,6 +32,12 @@ class App extends Component {
   }
 
   onTrashClicked = () => {
+    let updatedPoints = this.state.points;
+    updatedPoints += 1;
+
+    this.setState({
+      points: updatedPoints
+    });
   }
 
   render() {
@@ -40,6 +46,7 @@ class App extends Component {
         <Trash key={`trash-${index}`}
           isVisible={bin.isTrashVisible}
           index={index}
+          onTrashClicked={ this.onTrashClicked }
         />
       );
     });
